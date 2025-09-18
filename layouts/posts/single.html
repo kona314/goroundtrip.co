@@ -1,0 +1,27 @@
+{{ define "title" }}{{ .Title }} – {{ .Site.Title }}{{ end }}
+
+{{ define "head" }}
+{{ partial "opengraph.html" . }}
+{{ end }}
+
+{{ define "main" }}
+<div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+        <h1>{{ .Title }}</h1>
+        {{ if .Params.author }}
+        <div class="small text-secondary">
+            By {{.Params.author.name}}
+        </div>
+        {{ end }}
+        {{ if .Date }}
+        <div class="small text-secondary">
+            {{ .Date.Format "02 January 2006" }}
+        </div>
+        {{ end }}
+        <div class="mt-4">
+            {{ .Content }}
+        </div>
+    </div>
+</div>
+{{ partial "breadcrumb.html" . }}
+{{ end }}

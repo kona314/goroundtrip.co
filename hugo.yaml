@@ -1,0 +1,11 @@
+baseURL: https://goroundtrip.co/
+languageCode: en-us
+title: Round Trip Productions
+copyright: © Round Trip Productions, LLC
+params:
+  author:
+    email: kona@konafarry.com
+    name: Kona Farry
+caches:
+  images:
+    dir: :cacheDir/images

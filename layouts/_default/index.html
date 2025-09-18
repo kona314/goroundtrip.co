@@ -1,0 +1,63 @@
+{{ define "title" }}{{ .Title }}{{ end }}
+
+{{ define "main" }}
+{{/*  <div class="row pt-xl-5">
+    <div class="col-12 text-center mb-4">
+        <div>
+            <img src="me-circle.png" height="170px" width="170px">
+        </div>
+        <div class="findme-list bold pt-1">
+            {{ range .Page.Params.socials  }}
+            <span class="findme-item"><a {{if in .name "Mastodon"}}rel='me'{{else}}{{end}} href="{{.link}}">{{ .name }}</a></span>
+            {{ end }}
+        </div>
+    </div>
+</div>  */}}
+{{ range ( where .Site.RegularPages "Type" "posts" | first 1 ) }}
+    <div class="row justify-content-center mb-5">
+        <div class="col-12 col-md-8 text-center">
+            <small class="text-secondary">
+                <span>Latest post:</span>
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </small>
+        </div>
+    </div>
+{{ end }}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 text-center ">
+        <h2 class="fw-bold">
+            <a href="https://www.konafarry.com/?utm_source=rtpweb">Learn more and contact me.</a>
+        </h2>
+        {{/*  {{ .Content }}  */}}
+        {{/*  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#bioCollapse" aria-expanded="false" aria-controls="collapseExample">
+            About Me
+        </button>
+        <div id="bioCollapse" class="collapse pt-3">
+            {{ .Content }}
+        </div>  */}}
+    </div>
+</div>
+<div class="row justify-content-center mt-5"> 
+    <div class="col-12 col-md-8 text-center">
+        <div class="proj-list fw-bold">
+            {{ range .Page.Params.projectlinks }}
+            <span class="proj-list-item"><a href="{{.url}}">{{.name}}</a></span>
+            {{ end }}
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center mt-4">
+    <div class="col-12 col-md-8 text-center">
+        <p class="link">
+            <small>&copy;
+                <script>document.write(new Date().getFullYear())</script> Round Trip Productions, LLC
+            </small>
+        </p>
+    </div>
+</div>
+<style>
+    .proj-list .proj-list-item:not(:last-child)::after {
+        content: " | ";
+    }
+</style>
+{{ end }}
