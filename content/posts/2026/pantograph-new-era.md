@@ -1,6 +1,6 @@
 ---
 title: A New Era of Pantograph is Here
-data: 2026-09-14T11:00:00-0700
+date: 2026-09-14T11:00:00-0700
 summary: Introducing an all-new Pantograph
 ---
 
